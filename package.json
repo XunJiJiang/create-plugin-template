@@ -1,7 +1,7 @@
 {
-  "name": "create-plugin-template",
+  "name": "create-vite-plugin-template",
   "version": "1.0.0",
-  "description": "创建插件模板",
+  "description": "创建vite插件模板",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
