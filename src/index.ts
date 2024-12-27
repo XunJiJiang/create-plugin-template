@@ -283,7 +283,11 @@ async function createTempLets({
     tempLets.script[1] = `"release": ${tempLets.releaseScript[0]}`
   }
 
-  tempLets.devDependencies = [...(await getBaseDep()), ...(await getNodeDep()), ...(await getViteDep())]
+  tempLets.devDependencies = [
+    ...(await getBaseDep()),
+    ...(await getNodeDep()),
+    ...(await getViteDep())
+  ]
   if (useTs) tempLets.devDependencies.push(...(await getTsDep()))
   if (useEslint) tempLets.devDependencies.push(...(await getEslintDep()))
   if (usePrettier) tempLets.devDependencies.push(...(await getPrettierDep()))
@@ -539,7 +543,12 @@ function asyncPipe<T extends F[]>(...fns: T): Pipe<T> {
   return async function (arg: any) {
     let _arg = arg
     for (const fn of fns) {
-      _arg = await fn(_arg)
+      try {
+        _arg = await fn(_arg)
+      } catch {
+        console.error('stop.')
+        process.exit(1)
+      }
     }
     return _arg
   } as Pipe<T>
