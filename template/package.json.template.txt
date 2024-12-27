@@ -1,0 +1,32 @@
+{
+  "name": [let:"name"],
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+[let:script]
+  },
+  "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "author": [let:"author"],
+  "license": "MIT",
+  "description": [let:"description"],
+  "files": [
+    "dist",
+    "src",
+    "license",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "vite": "^6.0.0"
+  },
+  "devDependencies": {
+[let:devDependencies]
+  }
+}

@@ -5,23 +5,37 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "release": "powershell ./publish.ps1"
   },
   "bin": {
     "create-vite-plugin": "index.js",
     "cvp": "index.js"
   },
   "keywords": [
-    "xj",
-    "xj-fv"
+    "vite"
   ],
   "author": "XunJiJiang",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XunJiJiang/create-plugin-template/issues"
+  },
+  "homepage": "https://github.com/XunJiJiang/create-plugin-template#readme",
+  "files": [
+    "dist",
+    "src",
+    "index.js",
+    "license",
+    "README.md",
+    "template"
+  ],
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",
     "@eslint/js": "^9.17.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
@@ -34,9 +48,14 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.14.0",
+    "ora": "^8.1.1",
     "prettier": "^3.4.2",
     "rollup": "^4.29.1",
+    "rollup-plugin-esbuild": "^6.1.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.2"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.1"
   }
 }

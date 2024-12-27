@@ -9,3 +9,5 @@ dist
 temp
 logs
 .eslintcache
+
+.npmrc

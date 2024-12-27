@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+echo "Building all packages..."
+npm run build
+
+echo "Publish..."
+
+npmrcPath="./.npmrc"
+if [ ! -f "$npmrcPath" ]; then
+  echo ".npmrc file not found"
+  echo "Please log in to npm manually."
+  npm login
+fi
+
+npmrcContent=$(cat $npmrcPath)
+if [[ "$npmrcContent" != *"//registry.npmjs.org/:_authToken"* ]]; then
+  echo "Auth token not found in .npmrc"
+  echo "Please log in to npm manually."
+  npm login
+fi
+
+pushd "./"
+{
+  npm publish --access public
+} || {
+  echo "Failed to publish [let:name]"
+}
+popd
+
+echo "All packages have been published successfully!"
