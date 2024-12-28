@@ -13,7 +13,9 @@
     "cvp": "index.js"
   },
   "keywords": [
-    "vite"
+    "vite",
+    "plugin",
+    "template"
   ],
   "author": "XunJiJiang",
   "license": "MIT",
