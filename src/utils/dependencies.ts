@@ -31,12 +31,13 @@ const baseDepList = [
   '@rollup/plugin-node-resolve',
   '@rollup/plugin-terser',
   '@tsconfig/node20',
+  '@types/node',
   'globals',
   'rollup',
   'rollup-plugin-dts'
 ] as const
 
-const nodeDepList = ['@types/node'] as const
+// const nodeDepList = ['@types/node'] as const
 
 const viteDepList = ['vite'] as const
 
@@ -124,12 +125,12 @@ export const getBaseDep = async () =>
   Object.entries(await createDep(baseDepList)).map(([k, v]) => {
     return `"${k}": "${v}"`
   })
-export const getNodeDep = async () =>
-  nodeDepList.map((v) => {
-    const version = process.versions.node.split('.')
-    version[2] = '0'
-    return `"${v}": "^${version.join('.')}"`
-  })
+// export const getNodeDep = async () =>
+//   nodeDepList.map((v) => {
+//     const version = process.versions.node.split('.')
+//     version[2] = '0'
+//     return `"${v}": "^${version.join('.')}"`
+//   })
 export const getViteDep = async () =>
   viteDepList.map((v) => {
     return `"${v}": "^6.0.0"`

@@ -8,7 +8,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import {
   getBaseDep,
   getEslintDep,
-  getNodeDep,
+  // getNodeDep,
   getPrettierAndEslintDep,
   getPrettierDep,
   getTsAndEslintDep,
@@ -285,7 +285,7 @@ async function createTempLets({
 
   tempLets.devDependencies = [
     ...(await getBaseDep()),
-    ...(await getNodeDep()),
+    // ...(await getNodeDep()),
     ...(await getViteDep())
   ]
   if (useTs) tempLets.devDependencies.push(...(await getTsDep()))
